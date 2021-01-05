@@ -1,0 +1,44 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{amsmath,tkz-linknodes}
+
+\thispagestyle{empty}
+\begin{document}
+This example is from  MathMode.pdf of Herbert Vo\ss
+
+\begin{NodesList}[margin=1cm]
+  \begin{displaymath}\displaywidth=.2\linewidth
+	\begin{aligned} 
+	y &= 2x^2 -3x +5                          \AddNode\\
+  & \hphantom{= \ 2\left(x^2-\frac{3}{2}\,x\right. }% 
+      \textcolor{blue}{% 
+        \overbrace{\hphantom{+\left(\frac{3}{4}\right)^2- % 
+          \left(\frac{3}{4}\right)^2}}^{=0}}   \\       
+  &= 2\left(\textcolor{red}{% 
+       \underbrace{% 
+           x^2-\frac{3}{2}\,x + \left(\frac{3}{4}\right)^2}% 
+   }% 
+   \underbrace{% 
+        - \left(\frac{3}{4}\right)^2 + \frac{5}{2}}% 
+   \right)                                      \AddNode\\
+   &= 2\left(\qquad\textcolor{red}{\left(x-\frac{3}{4}\right)^2} 
+   \qquad + \ \frac{31}{16}\qquad\right)  \AddNode\\           
+y  
+   &= 2\left(x\textcolor{cyan}{-\frac{3}{4}}\right)^2\textcolor{blue}{+\frac{31}{8}}\AddNode 
+\end{aligned} 
+ 	     \end{displaymath}
+{%
+\tikzset{LabelStyle/.append style = {left,text=red}}
+    \LinkNodes{%
+    \begin{minipage}{5cm}
+      $2x^2 -3x$ is the beginning of an algebraic identity %
+       (binomial formula)
+      \end{minipage}}
+       \LinkNodes{$(a-b)^2=a^2-2ab+b^2$}
+       \LinkNodes{after simplication, the result is}%
+}
+	      \end{NodesList}
+	 
+
+\end{document}

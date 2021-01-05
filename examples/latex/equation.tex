@@ -1,0 +1,40 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{tkz-linknodes}
+\thispagestyle{empty}
+
+\begin{document}
+
+\parindent=0pt
+
+\begin{center}
+  \fbox{%
+  \begin{minipage}{10cm}
+        \begin{NodesList}[margin=2 cm]
+       \begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+       \intertext{\hfil isolate the term with the variable \hfil}
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2}                                       \AddNode
+         \end{align}
+ \LinkNodes{expand}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+ \LinkNodes{so that}
+   \end{NodesList} 
+  \end{minipage}}
+\end{center}
+
+\end{document}
+% Encoding : utf8
+% Author   : Alain Matthes (2008)
+% Engine   : pdfLaTeX (LaTeX only with pdftex >= 1.40)
+% Packages : xkeyval, tikz with arrow library, amsmath, etex, ifthen
+% Remark   : needs two compilations

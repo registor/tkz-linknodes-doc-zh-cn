@@ -1,0 +1,91 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{amsmath,tkz-linknodes}
+
+\thispagestyle{empty}
+\begin{document}
+
+% Show how to find the solution of two simultaneous equations.
+
+\begin{minipage}{10cm}
+  Solution of two simultaneous equations. The problem is to find the set of all solutions that satisfies both equations. These are called simultaneous equations.
+  \displaywidth=.4\linewidth
+	\begin{NodesList}[dy=3pt,margin=5cm]
+	\[  \displaywidth=.4\linewidth
+	 \left\{\begin{matrix}
+	3x 	&+&	4y  		&=&	10\\
+	2x		&+& 	y		&=&	5  \AddNode\\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	3x 	&+&	4y  		&=&	10\\
+	8x		&+& 	4y		&=&	20  \AddNode\\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	3x 	&+&	4y  		&=&	10  \\
+	5x		&& 			  &=&	10  \AddNode\\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	3(2) 	&+&	4y  		&=&	10\\
+	x		&& 			  &=&	2  \AddNode\\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	3(2) 	&+&	4y  		&=&	10\AddNode\\
+	x		&& 			  &=&	2  \\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	4y  		&=&	10-6\AddNode\\
+	x				  &=&	2  \\
+	\end{matrix}\right. \] 
+
+	\bigskip
+
+	\[\displaywidth=.4\linewidth \left\{\begin{matrix}
+	y  		&=&	1 \AddNode\\
+	x				  &=&	2  \\
+	\end{matrix}\right. \] 
+
+
+	  \LinkNodes{%
+	      \begin{minipage}{3cm}
+	         both sides of second equation  are multiplied by 4
+	         \end{minipage}}
+	  \LinkNodes{%
+	      \begin{minipage}{3cm}
+	      The first equation  is subtracted from  second 
+	         \end{minipage}}
+	           \LinkNodes{$\div 5$} 
+	     \LinkNodes{%
+	           \begin{minipage}{3cm}
+	             As a result, $x = 2$, this value is then substituted in the first equation
+	    \end{minipage}}
+	         \LinkNodes{%
+	         \begin{minipage}{3cm}
+	           $6$ is subtracted from both sides
+	               \end{minipage}}
+	              \LinkNodes{$\div 4$}
+	\end{NodesList}
+\end{minipage}
+
+The solution is $\{(x=2~;~y=1)\}$
+\end{document}
+% Encoding : utf8
+% Author   : Alain Matthes (2008)
+% Engine   : pdfLaTeX (LaTeX only with pdftex >= 1.40)
+% Packages : xkeyval, tikz with arrow library, amsmath, etex, ifthen
+% Remark   : needs two compilations

@@ -1,0 +1,1952 @@
+%  $Id: linknodes-us.tex  2009-02-22 12h22 alain matthes $  
+%  encoding : utf8 
+%  linknodesdoc.tex
+%  Created by Alain Matthes  on 2008-01-19.
+%  Copyright (C) 2009 Alain Matthes  
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License , either version 1.3
+% of this license or (at your option) any later version and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/generic/pgf/licenses/LICENSE for more details.%
+% See http://www.latex-project.org/lppl.txt for details.
+%
+%
+% ``linknodes-us'' is the english doc of tkz-linknodes
+%
+%
+\documentclass[DIV=14,
+               fontsize=10,
+               headinclude=false,
+               index=totoc,
+               footinclude=false,
+               headings=small]{tkz-doc-zh} 
+\usepackage{tkz-linknodes} 
+\usepackage{listings,tkzexample}
+\usepackage{url}
+\def\UrlFont{\small\ttfamily}
+%\usepackage[protrusion = true,
+%            expansion,
+%            final,
+%            verbose = false,
+%            babel   = true]{microtype}  
+
+%\DisableLigatures{encoding = T1, family = tt*}   
+\usepackage[parfill]{parskip}    
+
+\gdef\tkznameofpack{tkz-linknodes}
+\gdef\tkzversionofpack{1.1 d}
+\gdef\versionofpack{1.1 d}
+\gdef\dateofpack{2018/09/19}   
+\gdef\nameofdoc{doc-linknodes v1.1 d}
+\gdef\dateofdoc{2018/09/19}
+\gdef\tkzdateofpack{2018/09/09}
+\gdef\tkznameofdoc{doc-tkz-linknodes}
+\gdef\tkzdateofdoc{2018/09/09}
+\gdef\tkzversionofdoc{1.1 d} 
+\gdef\tkzauthorofpack{Alain Matthes}
+\gdef\tkzauthoroftran{耿楠}
+\gdef\tkzadressoftran{陕西$\cdot$杨凌}
+\gdef\adressofauthor{}
+\gdef\tkznamecollection{AlterMundus}    
+\gdef\tkzurlauthor{http://altermundus.fr}
+\gdef\tkzurlauthorcom{http://altermundus.com} 
+\gdef\tkzengine{xelatex}
+
+\title{tkz-linknodes宏包}
+\author{Philippe Ivaldi, Alain Matthes}
+
+\usepackage{shortvrb,fancyvrb} 
+%\usepackage[english]{babel}
+%\usepackage[autolanguage]{numprint}  
+
+\usepackage{microtype}
+
+%\usepackage{hyperref}
+%\hypersetup{
+%      linkcolor=Gray,
+%      citecolor=Green,
+%      filecolor=Mulberry,
+%      urlcolor=NavyBlue,
+%      menucolor=Gray,
+%      runcolor=Mulberry,
+%      linkbordercolor=Gray,
+%      citebordercolor=Green,
+%      filebordercolor=Mulberry,
+%      urlbordercolor=NavyBlue,
+%      menubordercolor=Gray,
+%      runbordercolor=Mulberry,
+%      pdfsubject={Graph function with gnuplot},
+%      pdfauthor={\tkzauthorofpack},
+%      pdftitle={\tkznameofpack},
+%      pdfkeywords={tikz, pgf, pdf, pdflatex, graphic, euclide,lualatex,
+%      points, maths, graph, gnuplot, angle ,function},
+%      pdfcreator={\tkzengine}
+%}
+\usepackage[xetex,unicode,
+                colorlinks=true,
+                pdfpagelabels, 
+                urlcolor=blue,
+                filecolor=pdffilecolor,
+                linkcolor=blue,
+                breaklinks =false,
+                hyperfootnotes=false,
+                bookmarks=false,
+                bookmarksopen=false, 
+                linktocpage=true,
+                pdfsubject={2d Drawings},
+                pdfauthor={Alain Matthes},
+                pdftitle={tkz-base},
+                pdfkeywords={base},
+                pdfcreator={XeLaTeX}
+                ]{hyperref} 
+\usepackage{fourier-otf}
+
+\usepackage{csquotes}
+\usepackage{pgfornament}
+
+\usepackage{makeidx}
+%\@twocolumnfalse
+\makeindex
+
+\colorlet{graphicbackground}{white}
+\colorlet{codebackground}{Gray!10}
+% \usepackage[saved]{tkzexample}
+% \def\tkzFileSavedPrefix{tkzFct}
+\def\blue{\color{blue}}
+\def\red{\color{red}}
+\usetikzlibrary{shapes.geometric}
+
+\parindent=0pt
+
+
+\begin{document}
+\title{\tkznameofpack}
+\date{\today}
+\clearpage
+\thispagestyle{empty}
+\maketitle
+\null
+\makeatletter
+\typeout{Load pgfornament font}
+\AddToShipoutPicture*{%
+\setlength\unitlength{1mm}
+\put(70,120){%
+\begin{tikzpicture}
+  \coordinate (A) at (0pt,240pt);
+  \coordinate (B) at (300pt,240pt);
+  \coordinate (C) at (300pt,0pt);
+  \coordinate (D) at (0pt,0pt);
+  \begin{scope}[opacity=0.5] % for opacity
+    \pgfornamentline[color=MidnightBlue]{[xshift=1.65cm,yshift=-1mm]A}{[xshift=-1.58cm,,yshift=-1mm]B}{1}{88}; % AB
+    \pgfornamentline[color=MidnightBlue]{[xshift=1.65cm,yshift=1.5mm]D}{[xshift=-1.58cm,yshift=1.5mm]C}{1}{88};
+    \pgfornamentline[color=MidnightBlue]{[xshift=2.2mm,yshift=-1.59cm]A}{[xshift=2.2mm,yshift=1.59cm]D}{1}{88};
+    \pgfornamentline[color=MidnightBlue]{[xshift=-1.2mm,yshift=-1.59cm]B}{[xshift=-1.2mm,yshift=1.59cm]C}{1}{88};
+  \end{scope}
+  \node[anchor=north west] at (A) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm]{61}}; % A
+  \node[anchor=north east] at (B) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=v]{61}};% B
+  \node[anchor=south east] at (C) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=c]{61}}; % C
+  \node[anchor=south west] at (D) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=h]{61}}; % D
+  \node[text width=280pt] at (150 pt,120 pt){%
+  \begin{center}
+    \color{MidnightBlue}
+    \fontsize{24}{48}
+    \selectfont tkz-linknodes宏包\par
+                基于\TIKZ{}的\par
+                绘制公式标记线宏包
+  \end{center}};
+\end{tikzpicture}}}
+\makeatother
+
+
+\clearpage
+\pagecolor{fondpaille}
+\color{Maroon} 
+\colorlet{graphicbackground}{fondpaille}
+\colorlet{codebackground}{Peach!30}
+\colorlet{codeonlybackground}{Peach!30}      
+
+\nameoffile{\tkznameofpack} 
+
+
+\defoffile{
+% \tkzname{Tkz-linknodes.sty} arose from a question of \textbf{Philippe Ivaldi}, about \TIKZ. It was a question of knowing if we could easily create links between the lines of an environment as \tkzname{aligned}  or still \tkzname{align} by indicating the operation made between the two lines. With the Philippe's acute remarks and his active collaboration, I hope I can bring you a useful tool.
+\tkzname{Tkz-linknodes.sty}源自\textbf{Philippe Ivaldi}对如何使用\TIKZ{}绘制公式标示线的工作，
+也就是为\tkzname{aligned}或\tkzname{align}环境中的公式不同行之间添加标示线，
+以表示不同公式之间的推导过程。
+基于\textbf{Philippe}的工作，希望本宏包提供的工具能够为公式排版带来方便，
+特殊是为数学教师或学生的公式推导排版提供便利。
+}
+
+\presentation  
+
+\vspace*{1cm}  
+% \lefthand\ Firstly, I would like to thank \tkzimp{Till Tantau} for the  beautiful LATEX package, namely \TIKZ.
+\lefthand\ 首先，感谢\textbf{Till Tantau}开发了美妙的\TIKZ{}绘图工具。
+
+\vspace*{12pt}    
+% \lefthand\ I am grateful to  \tkzimp{Michel Bovani} for providing the \tkzname{fourier} font.
+\lefthand\ 其次，感谢\tkzimp{Michel Bovani}开发的\tkzname{fourier}字体宏包。
+
+\vspace*{12pt}
+% \lefthand\ Finally, I would like to thank \tkzimp{Herbert Vo\ss} for providing
+%  a very good document  \tkzname{MathMode.pdf}, I used some examples from it. You can find \tkzname{MathMode.pdf} here:\newline
+% \url{http://dante.ctan.org/indexes/info/math/voss/mathmode/}
+\lefthand\ 最后，感谢\tkzimp{Herbert Vo\ss}的\tkzname{MathMode.pdf}文档，这是一份非常好的文档，
+为本宏包提供了大量的实例。可以在\url{http://dante.ctan.org/indexes/info/math/voss/mathmode/}
+下载到该文档。
+
+% \vspace*{12pt}
+% \lefthand\ Vous trouverez de nombreux exemples sur mes sites~: 
+% \href{http://altermundus.com/pages/download.html}{altermundus.fr} ou 
+% \href{http://altermundus.fr/pages/download.html}{altermundus.com}   
+
+% \vspace*{12pt}  
+% Please report typos or any other comments to this documentation to \href{mailto:al.ma@mac.com}{\textcolor{blue}{Alain Matthes}}
+% This file can be redistributed and/or modified under the terms of the LATEX 
+% Project Public License Distributed from CTAN archives in directory \url{CTAN:// 
+% macros/latex/base/lppl.txt}. 
+\vfill
+% Vous pouvez envoyer vos remarques, et les rapports sur des erreurs que vous aurez constatées à l'adresse suivante~: \href{mailto:al.ma@mac.com}{\textcolor{blue}{Alain Matthes}}.
+\noindent\lefthand\ 如果发现该文档的错误或有其他任何意见和建议，请发信至：\href{mailto:al.ma@mac.com}{\textcolor{blue}{Alain Matthes}}.
+
+\noindent\lefthand\ 如果发现译文的错误或其有他任何意见和建议，请发信至：\href{mailto:nangeng@nwafu.edu.cn}{\textcolor{blue}{耿楠}}.
+
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+可以在\href{http://www.ctan.org/}{CTAN}发布的``LATEX Project Public
+License''协议下发布和修改该文档。
+
+\clearpage
+\tableofcontents
+\newpage 
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+%\section{Introduction}
+\section{简介}
+
+% Here is an example of what Philippe wanted when he used the environment \tkzname{aligned} \footnote{The \tkzname{aligned}  environment is similar to the array environment, there exists no  starred version and it has only one equation number and has to be part of another math environment, which should be equation environment.}.
+以下是Philippe使用\tkzname{aligned}想要实现的排版效果
+\footnote{\tkzname{aligned}环境与\tkzname{array}环境类似，
+这个环境没有对应的带\enquote{\tkzname{*}}的环境，
+它只能生成一个公式编号，
+并且该环境必须在诸如\tkzname{equation}等其它数学环境内使用。}。
+
+
+\bigskip
+
+\begin{center}
+  \fbox{%
+  \begin{minipage}{12cm}
+        \begin{NodesList}[margin=3 cm]
+       \begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+       \intertext{\hfil 等式性质定理II \hfil}
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2}                                       \AddNode
+         \end{align}
+ \LinkNodes{展开}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+ \LinkNodes{结果}
+   \end{NodesList} 
+  \end{minipage}}
+\end{center}
+
+
+\bigskip
+% \tkzname{tkz-linknodes.sty} is based  on
+%  \tikzname{}, constituted by an  environment   \tkzname{NodesList} and two macros  \tkzcname{AddNode} and  \tkzcname{LinkNodes}.
+\tkzname{tkz-linknodes.sty}宏包是基于\TIKZ{}开发的，
+它提供了由一个\tkzname{NodesList}环境，\tkzcname{AddNode}和\tkzcname{LinkNodes}两个命令。
+
+% Philippe and I wanted a maximum of simplicity in the syntax and wish that it so stays even if developments occur. Without another word, it's the simplicity itself.
+使用简单的语法是该宏包开发的基本指导思想，
+这一方面无需增加对该宏包的学习成本，
+另一方面也为宏包的维护提供了方便。
+
+\vfill\newpage 
+% \section{Installation}\label{ins}
+\section{安装}\label{ins}
+% \subsection{How to install the package \texttt{\textcolor{red}{linknodes.sty}}}
+\subsection{安装\texttt{\textcolor{red}{linknodes.sty}}宏包}
+
+\newcommand{\drawpage}[4]{%
+  \begin{scope}[xshift=#1, yshift=#2,font=\footnotesize]
+    \filldraw[fill=white!75!#4,draw=#4, very thin]%
+   (0,0) -- (4.2,0) -- (4.2,4.85) --(3.21,5.84)-- (0,5.84) -- cycle;
+   \fill[fill=#4,shade,top color=#4,bottom color=#4!40]%
+       (3.21,5.84) -- ++(0,-0.99) -- ++(0.99,0) -- cycle;
+    \path (2.1,2.97) node{#3};
+  \end{scope}
+}   
+
+
+% It is possible that when you will read this document, \tkzname{tkz-tab} is present on the \tkzname{CTAN}\footnote{\tkzname{tkz-tab} is not still a part of \tkzname{TeXLive} but it will  be soon possible to install it with \tkzname{tlmgr}} server.  If \tkzname{tkz-tab} is not still a part of your distribution, this chapter  shows you how to install it. 
+现在，\tkzname{tkz-linknodes}宏包已被\tkzname{CTAN}收录\footnote{
+虽然\tkzname{tkz-linknodes}暂时还未收录于\tkzname{TeXLive}，
+但可以通过\tkzname{tlmgr}安装\tkzname{tkz-linknodes}宏包。}。
+如果使用的\LaTeX{}发行版中未收录\tkzname{tkz-linknodes}，则可按如下方式进行安装。
+% \subsection{With TeXLive under OS X and Linux}\NameDist{TeXLive}
+\subsection{在OS X或Linux平台下的TeXLive发行版中安装tkx-\LaTeX{}系列宏包}\NameDist{TeXLive}
+
+% You could simply  create a folder  \tikz[remember picture,baseline=(n1.base)]\node [fill=green!50,draw] (n1) {prof};  which path is : \colorbox{red!50}{ texmf/tex/latex/prof}. \colorbox{green!50}{texmf} is generally the personnal folder. For example the paths of this folder on my two computers are
+在\colorbox{red!50}{ texmf/tex/latex/}路径中创建一个\tikz[remember picture,baseline=(n1.base)]\node [fill=green!50,draw] (n1) {prof}; 文件夹。 其中，可以自定义\colorbox{green!50}{texmf}文件夹的路径和名称，如：
+
+\medskip
+% \begin{itemize}\setlength{\itemsep}{10pt}
+% \item   with OS X\NameSys{OS X} \colorbox{blue!30}{\textbf{/Users/ego/Library/texmf}}; 
+% \item   with Ubuntu\NameSys{Linux Ubuntu} \colorbox{blue!30}{\textbf{/home/ego/texmf}}.
+% \end{itemize}
+\begin{itemize}\setlength{\itemsep}{10pt}
+\item   OS X：\NameSys{OS X} \colorbox{blue!30}{\textbf{/Users/ego/Library/texmf}}; 
+\item   Ubuntu：\NameSys{Linux Ubuntu} \colorbox{blue!30}{\textbf{/home/ego/texmf}}.
+\end{itemize}
+
+% If you choose a custom location for  your files, I suppose that you know why!
+% The installation that I propose, is valid only for one user.
+如果安装TeXLive时选择了更改安装路径，请使用自定义的安装路径。
+在此，强烈仅对当前用户执行安装。
+
+\medskip
+% \begin{enumerate}
+% \item Store the file \tikz[remember picture,baseline=(n2.base)]\node [fill=green!50,draw] (n2) {tkz-linknodes.sty}; in the folder  \colorbox{green!50}{prof}.
+% \item Open a terminal, then type \texttt{\colorbox{red!50}{sudo texhash}}
+% \item Check that \textcolor{red}{xkeyval(>=2.5) and tikz 2.0} are installed.
+% \end{enumerate}
+\begin{enumerate}
+\item 将\tikz[remember picture,baseline=(n2.base)]\node [fill=green!50,draw] (n2) {tkz-linknodes.sty}; 复制到\colorbox{green!50}{prof}文件夹。
+\item 打开终端，执行：\texttt{\colorbox{red!50}{sudo texhash}}
+\item 确保安装了\textcolor{red}{xkeyval(>=2.5)和\TIKZ{}(>=2.0)}。
+\end{enumerate}
+
+% My folder texmf is structured as in the diagram below because I use the \tkzname{CVS}\footnote{You can find the cvs version here : \url{http://www.texample.net/tikz/builds/} without CVS\\ or here with CVS \url{http://sourceforge.net/projects/pgf/}} version of \TIKZ. You don't need all the \tkzname{pgf} folders.
+下图是当前的目录结构，如果不使用\tkzname{CVS}版的\TIKZ{}\footnote{可以在\url{http://www.texample.net/tikz/builds/}获得不带CVS版本控制的pgf版本\\ 也可以在\url{http://sourceforge.net/projects/pgf/}获得带CVS版本控制的pgf版本。} ，则无需\tkzname{pgf}文件夹。
+
+\medskip
+\begin{tikzpicture} [remember picture,rotate=90] 
+
+\node (texmf)   at (4,2)    [draw,fill=blue!30 ] {texmf};
+\node (tex)     at (6,0)    [draw ]            {tex}; 
+\node (doc)     at (0,0)    [draw ]            {doc};
+\node (generic) at (7,-4)   [draw ]            {generic};
+\node (docgen)  at (0,-4)   [draw ]            {generic};
+\node (latex)   at (4,-4)   [draw ]            {latex}; 
+\node (pgf)     at (7,-7)   [draw,fill=orange] {pgf};
+\node (pre)     at (6,-7)   [draw,fill=orange] {pgf};
+\node (xkey)    at (5,-7)   [draw ]            {xkeyval};
+\node (four)    at (4,-7)   [draw ]            {fourier};
+\node (prof)    at (3,-7)   [draw,fill=green ] {{prof}};
+\node (etc)     at (2,-7)   [draw ]            {etc...}; 
+\node (dpgf)    at (0,-7)   [draw,fill=orange] {pgf};
+\node (qcm)     at (7,-11)  [draw,fill=green ] {alterqcm.sty};
+\node (fonc)    at (6,-11)  [draw,fill=orange] {tkz-base.sty};
+\node (esp)     at (5,-11)  [draw,fill=orange] {tkz-fct.sty};
+\node (tuk)     at (4,-11)  [draw,fill=orange] {tkz-arith.sty};
+\node (tab)     at (3,-11)  [draw,fill=orange] {tkz-linknodes.sty};
+\node (base)    at (2,-11)  [draw,fill=orange] {tkz-2d.sty};
+\node (gra)     at (1,-11)  [draw,fill=orange] {tkz-berge.sty};
+\draw (doc.west)        |- (4, 1);
+\draw (tex.west)        |- (4, 1);
+\draw (latex.west)      |- (6,-2);
+\draw (generic.west)    |- (6,-2);
+\draw (xkey.west)       |- (5,-6);
+\draw (prof.west)       |- (3,-6);
+\draw (four.west)       |- (4,-6);
+\draw (pre.west)        |- (4,-6); 
+\draw (etc.west)        |- (4,-6);
+\draw (qcm.west)        |- (3,-9);
+\draw (fonc.west)       |- (6,-9);
+\draw (esp.west)        |- (5,-9);
+\draw (tuk.west)        |- (4,-9);
+\draw (tab.west)        |- (3,-9);
+\draw (base.west)       |- (2,-9);
+\draw (gra.west)        |- (3,-9);
+\draw[-open triangle 90] (pgf.west)     --  (generic.east);
+\draw[-open triangle 90] (4,1)          --  (texmf.east);
+\draw[-open triangle 90] (6,-2)         --  (tex.east);
+\draw[-open triangle 90] (4,-6)         --  (latex.east);
+\draw[-open triangle 90] (3,-9)         --  (prof.east);
+\draw[-open triangle 90] (dpgf.west)    --  (docgen.east);
+\draw[-open triangle 90] (docgen.west)  --  (doc.east);
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+        \path[->,thin,red,>=latex] (n1) edge [bend left] (prof);
+        \path[->,thin,red,>=latex] (n2) edge [bend left] (prof);
+\end{tikzpicture}
+
+% \subsection{How to work with the tkz-\LaTeX-package under Windows?}
+\subsection{在Windows下安装tkz-\LaTeX{}系列宏包}
+\NameDist{MikTeX}
+
+\NameSys{Windows XP}
+% Download and install the following files (if not yet done):
+下载并安装下列文件：
+\begin{enumerate}
+
+  % \item the \LaTeX-system MiKTeX from
+	\item 从\url{http://www.miktex.org}下载MikTeX发行版
+
+
+      % What file you need (e.g.
+      % \texttt{basic-miktex-2.7.2904.exe}) and how to install
+      % this program is explained there in the "Download"
+      % section of the respective version (current version is
+      % 2.7). In general and as usual in windows, you run the
+      % setup process by starting the setup file :\newline (e.g.\texttt{basic-miktex-2.7.2904.exe}).
+      下载需要的文件(如\texttt{basic-miktex-2.7.2904.exe})，
+	  然后按对应指南进行安装(当前版本是2.7)。 
+	  通常来讲，通过运行安装程序进行安装，例如：\newline
+	  (\texttt{basic-miktex-2.7.2904.exe}).
+
+  % \item Till Tantau's \LaTeX-package \texttt{pgf-tikZ} from
+  \item 从\url{http://sourceforge.net/projects/pgf/}下载Till Tantau的\LaTeX{}\texttt{pgf-tikZ}宏包。
+
+      % "For MiKTeX, use the update wizard [of MiKTeX] to
+      % install the (latest versions of the) packages called
+      % \texttt{pgf}, \texttt{xcolor}, and \texttt{xkeyval}."
+      % (cited from the pgf manual, contained in the files
+      % downloaded).
+	  \enquote{
+		  对于MiKTeX，可以使用其更新向导安装
+		  \texttt{pgf}、\texttt{xcolor}和\texttt{xkeyval}的最新版。}
+      (在pgf使用手册中，包含了这些文件的下载连接)。
+       % \item the sty-files and the doc-files of Alain's tkz-package
+  \item 从\url{http://www.altermundus.fr/pages/download.html}或
+	  \url{http://altermundus.com/pages/download.html}下载Alain的tkz-\LaTeX{}系列宏包和文档
+	  \footnote{译者注：现在所有宏包都移至Github\url{https://github.com/tkz-sty}}。
+
+	  并添加到MiKTeX：
+
+            \begin{itemize}
+              % \item add a directory \texttt{prof} in the
+              %     directory \texttt{[MiKTeX-dir]/tex/latex'},
+              %     e.g. in windows explorer,
+				\item 在\texttt{[MiKTeX-dir]/tex/latex}中新建一个\texttt{prof}文件夹
+              % \item copy the sty-files in this directory
+				\item 将tkz-\LaTeX{}系列宏包的sty文件复制到该文件夹
+              % \item update the MiKTeX system, ether by running
+              %     in a DOS shell the command\newline\texttt{"mktexlsr
+              %     -u"}\newline or by clicking\newline
+              %     "Start/Programs/Miktex/Settings/General", then
+              %     push the button "Refresh FNDB".
+              \item 在命令行运行：\newline\texttt{"mktexlsr
+                  -u"}\newline 或选择\newline
+                  "Start/Programs/Miktex/Settings/General"菜单，并单击"Refresh FNDB"按钮。\newline
+				  更新MikTeX系统。
+            \end{itemize}
+      \end{enumerate}
+
+\vfill\newpage
+% \section{How to use the package \texttt{\textcolor{red}{linknodes.sty}}}
+\section{\texttt{\textcolor{red}{linknodes.sty}}宏包使用方法}
+
+\bigskip
+% You can compile with pdflatex but you have to compile your document
+% twice!
+% It's possible to compile with   latex but only if the version of pdftex is equal to or greater than  1.40.
+可以使用pdflatex编译\enquote{.tex}文件，但必须至少编译2次。如果pdftex的版本等于或大于1.40，则可以直接使用latex进行编译\footnote{译者注：对于中文，需要使用xelatex进行编译2次，强烈建议使用latexmk xelatex进行编译，latexmk会自动根据需要进行多次编译。}。
+
+\bigskip
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,scale=.75]
+  \drawpage{0cm}{0cm}{\texttt \blue file.tex}{blue}
+  \drawpage{16cm}{0cm}{\texttt \red file.pdf}{red}
+  \path (8.05,2.9) node(A) 
+      [diamond,%
+       draw,color=black,fill=red,%,%
+      text = black,%
+      minimum size = 3 cm,%
+      font         = \normalsize] 
+     {{\texttt pdflatex}};  
+  \path (12.1,2.9) node(B) 
+     [diamond,%
+      draw,color=black,fill=red,%,%
+      text = black,%
+      minimum size = 3 cm,%
+      font         = \normalsize] 
+     {{\texttt pdflatex}};
+  \draw[->] (4.2,2.9) -- (A.west);
+  \draw[->] (B.east) -- (16,2.9);
+\end{tikzpicture}
+\end{center}
+
+% The package loads,tries to load \tkzname{xkeyval}[2005/11/25], \tkzname{tikz}[2007/06/07] version 2.00, \tkzname{amsmath},  \tkzname{etex} and \tkzname{ifthen}.
+该宏包会自动加载\tkzname{xkeyval}[2005/11/25]、
+\tkzname{tikz}[2007/06/07](V2.00)、
+\tkzname{amsmath}、\tkzname{etex}和\tkzname{ifthen}宏包。
+
+\bigskip
+% \subsection{Minimal example but complete}
+\subsection{最小工作示例(MWE)}
+
+{
+\definecolor{codebackground}{rgb}{0,0,0}
+%\blanc
+\begin{tkzexample}[code only,vbox,small,num]
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{tkz-linknodes}
+\begin{document}
+ \begin{NodesList}
+ \[ % formula no "inline"
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+ \LinkNodes{$\div 2$}
+ \end{NodesList}
+\end{document}\end{tkzexample}}
+
+\bigskip
+% \subsection{Result}
+\subsection{排版结果}
+ \begin{NodesList}
+ \[ % formula no "inline"
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+ \LinkNodes{$\div 2$}%
+ \end{NodesList}
+
+\vfill\newpage                         
+              
+%  \section{Essential environment \texttt{\textcolor{red}{NodesList}} and  macros \textcolor{red}{ \addbs{LinkNodes}} and \textcolor{red}{ \addbs{AddNode}}}
+ \section{\texttt{\textcolor{red}{NodesList}}环境，\textcolor{red}{ \addbs{LinkNodes}}命令和\textcolor{red}{ \addbs{AddNode}}命令}
+
+% \subsection{The environment \texttt{\textcolor{red}{NodesList}}}
+\subsection{\texttt{\textcolor{red}{NodesList}}环境}
+
+% \begin{NewEnvBox}{NodesList} 
+%
+%
+% \begin{tabular}{>{\color{green!50!black}}lll}
+% \hline
+% options & default  & definition                                              \\
+% \hline
+% \IoptNameEnv{NodesList}{margin}   & \tkzdft{2cm}    & right margin            \\
+% \IoptNameEnv{NodesList}{dy}      & \tkzdft{1.5pt}  & $2\times \text{dy}$ is the space between two adjacent arrows on the same node.   \\
+% \hline
+% \end{tabular}
+%
+%
+% \medskip
+% \noindent\emph{The use of this environment is obligatory. It admits options which we are going to detail in the following examples. These options are not obligatory and the values by default are given in the table above.}
+% \end{NewEnvBox}   
+\begin{NewEnvBox}{NodesList} 
+
+
+\begin{tabular}{>{\color{green!50!black}}lll}
+\hline
+选项 & 默认值  & 含义                                              \\
+\hline
+\IoptNameEnv{NodesList}{margin}   & \tkzdft{2cm}    & 右边距            \\
+\IoptNameEnv{NodesList}{dy}      & \tkzdft{1.5pt}  & $2\times \text{dy}$是同一\enquote{\tkzname{node}}上两个相邻箭头之间的间隔。 \\
+\hline
+\end{tabular}
+
+
+\medskip
+\noindent\emph{
+必须使用该环境排版公式标记线，可通过选项调整效果，其默认值见上表。
+}
+\end{NewEnvBox}   
+% \subsection{The command \textcolor{red}{ \addbs{AddNode}}} 
+\subsection{\textcolor{red}{ \addbs{AddNode}}命令} 
+
+% \begin{NewMacroBox}{AddNode}{\oarg{options}}
+%
+%   \begin{tabular}{>{\color{green!50!black}}lll}
+%   \hline
+%   options & default  & definition                                     \\
+%   \hline
+%   \IoptName{AddNode}{number}   & \tkzdft{1}    & It defines to which group belongs this node          \\
+%   \hline
+%   \end{tabular}
+%   
+% \medskip
+% \emph{An optional argument is possible, thus placed between hooks if it is present, and it is an integer superior to 1. It defines to which group belongs this node.}
+%
+% \medskip
+%  
+% \emph{This macro allows to ask that a link can leave or arrive of the node which we have just created. Really, it is not a node, I would say rather an anchor either another a reference point.\\
+% A group is a set of links (arrows). The origin of the one is the extremity of the precedent. The first group is noted 1 which is the value by default.}
+%  \end{NewMacroBox}
+\begin{NewMacroBox}{AddNode}{\oarg{number}}
+
+  \begin{tabular}{>{\color{green!50!black}}lll}
+  \hline
+  选项 & 默认值  & 含义                                     \\
+  \hline
+  \IoptName{AddNode}{number}   & \tkzdft{1}    & 定义\enquote{\tkzname{node}}的组编号          \\
+  \hline
+  \end{tabular}
+  
+\medskip
+\emph{
+注意，number是一个等于1或大于1的整数。}
+
+\medskip
+ 
+\emph{
+该命令允许定义一个当前\enquote{\tkzname{node}}的离开或接入点，
+确切的说，是一个锚点或叫参考点。
+一个组是一个连接集合，
+第一组用默认值1表示。
+}
+ \end{NewMacroBox}
+%  \subsection{The command \textcolor{red}{ \addbs{LinkNodes}}} 
+ \subsection{\textcolor{red}{ \addbs{LinkNodes}}命令} 
+
+
+% \begin{NewMacroBox}{LinkNodes}{\oarg{options}\var{expression}}
+%
+% \medskip
+% \begin{tabular}{>{\color{green!50!black}}lllc}
+% \hline
+% options   & default   & definition                                          \\
+% \hline
+% \IoptName{LinkNodes}{margin}& \tkzdft{2 cm}   & right margin                  \\
+% \IoptName{LinkNodes}{dy}   & \tkzdft{1.5 pt}  & $2\times \text{dy}$ is the space between two adjacent arrows on the same node.   \\
+% \hline
+% \end{tabular}
+%
+% \medskip
+% \emph{This macro allows the representation of the link between nodes and the label the contents of which are "expression" placed on this link. These links are created by following the order of their creation. 
+% }
+%
+% \end{NewMacroBox} 
+\begin{NewMacroBox}{LinkNodes}{\oarg{命令选项}\var{表达式}}
+
+\medskip
+\begin{tabular}{>{\color{green!50!black}}lllc}
+\hline
+选项   & 默认值   & 含义                                          \\
+\hline
+\IoptName{LinkNodes}{margin}& \tkzdft{2 cm}   & 右边距                  \\
+\IoptName{LinkNodes}{dy}   & \tkzdft{1.5 pt}  & $2\times \text{dy}$ 是同一\enquote{\tkzname{node}}上两个相邻箭头之间的间隔。 \\
+\hline
+\end{tabular}
+
+\medskip
+\emph{
+	该命令用于连接\enquote{\tkzname{node}}，并为连线(公式标示线)布置标签，
+	\enquote{表达式}是标签的内容，
+	标示线按\enquote{\tkzname{node}}的创建顺序进行连接。
+}
+\end{NewMacroBox} 
+% The style of these links is determined by the default following styles :
+这些连接的默认样式为：
+\begin{itemize}
+  \item \tkzcname{tikzset\{ArrowStyle/.style=\{>=latex,->,text=black\}\}}
+  \item \tkzcname{tikzset\{LabelStyle/.style=\{pos=0.25,right\}\}}
+  \item \tkzcname{tikzset\{NodeStyle/.style=\{\}\}}
+\end{itemize}
+
+% The first style is for the arrows then we have a style for the labels and the last style is for the node, by default it is empty.
+其中，第1个样式是箭头样式，然后是标签样式，最后一个是\enquote{\tkzname{node}}样式。
+
+\medskip
+% As you notice it, the macro are simple and the syntax is \LATEX syntax. It will be necessary to you to study a little \tkzname {TikZ} only to modify the styles but some examples should  be sufficient  to realize what you wish.
+显然，这些环境和命令的语法都是简单的\LATEX{}语法，
+并且只需要了解少量\tkzname{TikZ}语法，就可以进行样式修改。
+详细内容，也可以参考以下示例代码。
+
+% Comme vous  le constatez, les macros sont simples et la syntaxe est du type \LATEX. Il vous faudra étudier un peu \tkzname{TikZ} seulement pour modifier les styles mais quelques exemples devraient vous suffir pour réaliser ce que vous souhaitez.
+
+
+% \section{The code of the example in the introduction}
+\section{应用示例}
+
+% \subsection{The code of the first example}
+\subsection{示例1}
+ \Iopt{LinkNodes}{margin} 
+% Let us see first of all, the example of the introduction but placed in a more general frame, that of a page A4. Four nodes  are created at the end of every line, then three links, both first ones have a personalized margin.
+第1个示例用A4页面进行排版，共有6个\enquote{\tkzname{node}}，5个连接，并设置了边距。
+
+% The environment \tkzname{aligned} is placed in an environment \tkzname {displaymath} that is "in display mathematical mode". It means that the equations are placed in a box having the width of the page and that the sign equals is situated in the center of a line.
+在\enquote{\tkzname{displaymath}}行间公式环境中使用\tkzname{aligned}环境，
+这意味着会将公式布置于与页宽相等的盒子内，并且\enquote{=}号位于一行的中心。
+
+\begin{tkzexample}[vbox,small,num]
+ \begin{NodesList}
+   \begin{align}
+      \boxed{ 3(x^2-3) =4 }                                         \AddNode\\
+      x^2-3  =\frac{4}{3}                                           \AddNode\\
+      \intertext{\hfil 等式性质定理I \hfil}
+      x^2    =\frac{13}{3}                                          \AddNode\\
+      \sqrt{x^2}    =\sqrt{\frac{13}{3}}                            \AddNode\\
+       |x|   =\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x      =\pm\sqrt{\frac{13}{3}}                                \AddNode
+   \end{align}
+   \LinkNodes[margin=1cm]{$\div 3$}%
+   \LinkNodes[margin=1.5cm]{$+3$}%
+   \LinkNodes[margin=2.5cm]{$\sqrt{\ldots}$}
+   \LinkNodes[margin=3cm]{$\sqrt{x^2}=|x|$}
+   \LinkNodes[margin=4.5cm]{答案}
+ \end{NodesList}\end{tkzexample}
+
+\medskip
+
+% That the environment \tkzname {NodesList} makes exactly. It tracks down the width of the line of the page which goes the receive here this width is the width of the text because we are in a display mathematical mode. The example of the introduction is placed in an environment \tkzname {minipage} of \LaTeX, thus the width will  be the one attributed to minipage.
+由于处于行间公式模式，因此\tkzname{NodesList}环境得到的是文本宽度， 
+而引言的示例是基于\tkzname{minipage}环境排版的，因此，其宽度是\tkzname{minipage}的宽度。
+% Que fait exactement l'environnement \tkzname{NodesList}. Il repère la largeur de la ligne de la page qui va l'accueillir ici cette largeur est la largeur  du texte car nous sommes dans un environnement mathématique hors texte. L'exemple de l'introduction est placé dans un environnement \tkzname{minipage} de \LaTeX{}, la largeur sera donc celle attribuée à celui-ci.
+
+%  Then, it prepares a list of counters to attribute automatically names to the nodes that the user will have placed with the macro \tkzcname{AddNode}. The macro \tkzcname{LinkNodes} represents a link between two successive nodes.
+然后，用一个计数器跟踪\tkzcname{AddNode}命令，为其实现正确编号。
+\tkzcname{LinkNodes}命令用于连接两个相邻的\enquote{\tkzname{node}}。
+
+% \subsection{With the environment \tkzname{minipage}}
+\subsection{在\tkzname{minipage}环境中排版}
+\Iopt{LinkNodes}{margin}   \Ienv{minipage} 
+% Thus we go to see what arrives at our environment in the case of an environment \tkzname {minipage}. In that case the width of the page is given by  \tkzname {minipage}. The result can be seen  below, we need to modify the last margin :
+此时，排版宽度由\tkzname {minipage}环境确定，结果如下，注意边距的调整：
+
+\medskip
+\begin{center}\fbox{\begin{minipage}{12cm}
+ \begin{NodesList}
+  \[
+    \begin{aligned}
+      3(x^2-3) &=4                                                   \AddNode\\
+      x^2-3  &=\frac{4}{3}                                           \AddNode\\
+      x^2    &=\frac{13}{3}                                          \AddNode\\
+      \sqrt{x^2}    &=\sqrt{\frac{13}{3}}                            \AddNode\\
+       |x|   &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x      &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+      \end{aligned}
+  \]
+   \LinkNodes[margin=1cm]{$\div 3$}%
+   \LinkNodes[margin=1.5cm]{$+3$}%
+   \LinkNodes[margin=2.5cm]{$\sqrt{\ldots}$}
+   \LinkNodes[margin=3cm]{$\sqrt{x^2}=|x|$}
+   \LinkNodes[margin=4cm]{答案}
+ \end{NodesList}
+\end{minipage}}\end{center}
+
+\medskip
+\Ienv{minipage} \Ienv{displaymath} 
+{
+\definecolor{codebackground}{rgb}{0,0,0}
+%\blanc
+\begin{tkzexample}[code only,vbox,small,num]
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{LinkNodes}
+\begin{document}
+\begin{center}\fbox{\begin{minipage}{12cm}
+  \begin{NodesList}
+  \begin{displaymath}
+   \begin{aligned}
+      3(x^2-3) &=4                                                   \AddNode\\
+      x^2-3  &=\frac{4}{3}                                           \AddNode\\
+      x^2    &=\frac{13}{3}                                          \AddNode\\
+      \sqrt{x^2}    &=\sqrt{\frac{13}{3}}                            \AddNode\\
+       |x|   &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x      &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+      \end{aligned}
+   \end{aligned}
+  \end{displaymath}
+  \LinkNodes[margin=4 cm]{$\div 3$}
+  \LinkNodes[margin=3 cm]{$+3$}
+  \LinkNodes{$\sqrt{\ldots}$}
+   \LinkNodes[margin=3cm]{$\sqrt{x^2}=|x|$}
+   \LinkNodes[margin=4cm]{答案}
+  \end{NodesList}
+  \end{minipage}}\end{center}
+\end{document}\end{tkzexample}}
+
+
+
+% \section{Options with effects on the structure}
+\section{公式结构}
+
+% \subsection{One link between the first two lines}
+\subsection{头两行公式间的连接标示}
+% I take the same example and I try to modify it. I want only the first link so I create only two nodes and one link.
+该示例是前一个示例的变体，只需1个连接，为此，仅需创建2个\enquote{\tkzname{node}}和1个连接。
+\Ienv{displaymath}
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+  \begin{displaymath}
+    \begin{aligned}
+      3(x^2-3) &= 4                                                 \AddNode\\
+        x^2-3  &= \frac{4}{3}                                       \AddNode\\
+        x^2    &= \frac{13}{3}                                              \\
+  \sqrt{x^2}  &=\sqrt{\frac{13}{3}}                                         \\
+       |x|   &=\sqrt{\frac{13}{3}}                                          \\
+      x      &=\pm\sqrt{\frac{13}{3}}                                 
+      \end{aligned}
+  \end{displaymath}
+  \LinkNodes{$\div 3$}%
+\end{NodesList}\end{tkzexample}
+
+
+% \subsection{One link between the last two lines}
+\subsection{中间两行公式间的连接标示}
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+  \begin{displaymath}
+     \begin{aligned}
+        3(x^2-3) &= 4                                                       \\
+          x^2-3  &= \frac{4}{3}                                             \\
+          x^2    &= \frac{13}{3}                                    \AddNode\\
+  \sqrt{x^2}  &=\sqrt{\frac{13}{3}}                                 \AddNode\\
+       |x|   &=\sqrt{\frac{13}{3}}                                          \\
+      x      &=\pm\sqrt{\frac{13}{3}}                               
+      \end{aligned}
+  \end{displaymath}
+  \LinkNodes{$\sqrt{\ldots}$}
+\end{NodesList}\end{tkzexample}
+
+
+% \subsection{How to create a new group}
+\subsection{创建新组}
+\Iopt{AddNode}{new group} \Iopt{AddNode}{groups}\Ienv{displaymath}
+% We saw how having a link on the first nodes  , as well as on the last ones, now here is an example to have a link on the first  and the last nodes.
+前面的示例中，演示了从第1个\enquote{\tkzname{node}}到最后一个\enquote{\tkzname{node}}连续添加连接标示的过程。下面的示例中，将演示如何绘制不同\enquote{\tkzname{node}}的连接。
+
+% The principle is simple. The argument 2 indicates that we create another chain of links. It was already present but 1 is optional.
+其基本原理是用选项\enquote{2}创建一个新组，注意，\enquote{1}组已经被使用了，
+该参数必须采用顺序递增模式设置。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+ \begin{displaymath}
+  \begin{aligned}
+   3(x^2-3) &=4                                                  \AddNode   \\
+     x^2-3  &= \frac{4}{3}                                       \AddNode   \\
+     x^2    &= \frac{13}{3}                                      \AddNode[2]\\
+  \sqrt{x^2}  &=\sqrt{\frac{13}{3}}                              \AddNode[2]\\
+       |x|   &=\sqrt{\frac{13}{3}}                                          \\
+      x      &=\pm\sqrt{\frac{13}{3}}                 
+  \end{aligned}
+ \end{displaymath}
+ \LinkNodes{$\div 3$}%
+ \LinkNodes{$\sqrt{\ldots}$}
+\end{NodesList}\end{tkzexample}
+
+% \subsection{Two   groups on the same line}
+\subsection{同一行公式中创建两个分组}
+% We can also do that. 
+
+\Iopt{AddNode}{two groups on the same line}
+\begin{tkzexample}[vbox,small,num]
+	\begin{NodesList}[margin=3cm]
+	 \begin{displaymath}\displaywidth=.4\linewidth
+	   \begin{aligned}
+	      x^2-4       & = 0                            \AddNode \AddNode[2]\\
+	      (x-2)(x+2)  & = 0                                                \\
+	     \left.\begin{aligned}                        
+	              x-2 & = 0                                        \AddNode\\
+	              x   & = 2                                                \\
+	                  &                                                    \\
+	              x+2 & = 0                                     \AddNode[2]\\
+	              x   & = -2                                               \\
+	           \end{aligned}\right\}                                       \\
+	     \end{aligned}
+	 \end{displaymath}
+	  {\tikzset{LabelStyle/.style = {left=5cm,pos=.5,above,text=red}} 
+	  \LinkNodes[margin=5cm]{ 第1个因式为0}%
+	   \LinkNodes{可第2个因式为0}%
+	  }
+	\end{NodesList}\end{tkzexample}
+
+
+% \subsection{Empty line}
+\subsection{公式中的空行}
+\index{Empty line}\Iopt{LinkNodes}{margin} \Ienv{aligned}
+% You can try this example without \tkzcname{hfill} at line 5.
+% 也可以不使用第5行代码中的\tkzcname{hfill}命令。
+\begin{tkzexample}[vbox,small,num]
+ \begin{minipage}{10cm}
+	 \begin{NodesList}[margin=-2cm]
+	     \[\left\{
+	    \begin{aligned}
+	      d_n & =  \displaystyle {400-\frac{v_n}{3}}              \AddNode\hfill\\% 可以不用\hfill
+	          &                                                                 \\
+	      v_n & =   0,8v_{n-1}+0,2d_n+9,6                               \AddNode\\
+	      \end{aligned}
+	     \right.\]
+	   \LinkNodes{$v_n$ 和 $d_n$相关}
+	\end{NodesList}
+ \end{minipage}\end{tkzexample}
+
+% \section{Options with effects on the presentation}
+\section{选项对排版的影响}
+% These options are among two, \tkzname{margin} and \tkzname {dy}. They are useful globally at the level of the environment \tkzname{NodesList} either locally at the level of the macro \tkzcname{LinkNodes}.
+\tkzname{margin}和\tkzname {dy}选项会影响排版结果，
+如果在\tkzname{NodesList}环境中使用该选项，则会影响该环境中所有\tkzcname{LinkNodes}命令，
+如果在\tkzcname{LinkNodes}命令中使用该选项，则只影响该\tkzcname{LinkNodes}命令。
+
+% \subsection{Option \tkzname{margin}}
+\subsection{\tkzname{margin}选项}
+\Iopt{LinkNodes}{margin} \Ienv{aligned} \Ienv{minipage} 
+% First of all, let us remind that the default margin  is 2 cm. It is represented by the red arrow on the following figure. The margin is defined from the right edge of the box which begins the environment.   
+该选项默认值为2cm，如下图中的红色箭头所示。
+其中，边距根据盒子右边缘进行定义。
+\medskip
+  \begin{center}
+    \setlength{\fboxsep}{0pt}
+    \fbox{\begin{minipage}{12cm}
+ \begin{NodesList}
+  \begin{displaymath}
+    \begin{aligned}
+      3(x^2-3) &=4                                                   \AddNode\\
+        x^2-3  &=\frac{4}{3}                                         \AddNode\\
+        x^2    &=\frac{13}{3}                                        \AddNode\\
+      \sqrt{x^2}    &=\sqrt{\frac{13}{3}}                            \AddNode\\
+       |x|   &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x      &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+      \end{aligned}
+  \end{displaymath}
+  \LinkNodes[margin=4cm]{$\div 3$}%
+  \LinkNodes[margin=3cm]{$+3$}%
+  \LinkNodes{$\sqrt{\ldots}$}
+  \tikz[remember picture,overlay]%
+  \draw[>=latex',red,<->](Inter) to node[above]{2 cm}%
+        ([shift={(2cm,0)}]Inter);
+ \end{NodesList}
+\end{minipage}}%
+\end{center}
+
+\medskip
+% It is necessary to notice that the box of the introduction is slightly different from  this one. Indeed, the macro \tkzcname{fbox} adds a space around its equal contents in \tkzcname{fboxsep}. This one was put in zero for the occasion.
+需要注意的是，引言示例中的盒子与此处的盒子不完全相同，实际上，
+\tkzcname{fbox}命令会在\tkzcname{fboxsep}盒子中相同的内容两边添加指定的间距。
+在此，对这些间距做了归零处理。
+
+% \subsection{Equal margins}
+\subsection{等边距排版}
+\IoptEnv{NodesList}{margin} \Ienv{aligned} \Ienv{displaymath}
+% I suppose that you understood that the option \tkzname{margin} of the macro \tkzcname{LinkNodes} plays the same role as that of the environment. So having deleted them, I choose a margin of 3 cm as everybody.
+% This time with regard to the edge of the text field of the page.
+\tkzname{NodesList}环境与\tkzname{LinkNodes}命令的\tkzname{margin}选项作用相同，
+所以可以通过在\tkzname{NodesList}环境中使用\tkzname{margin}选项为所有\tkzname{LinkNodes}命令设置相同边距
+(在此使用文本宽度)。
+
+
+\begin{NodesList}[margin=3cm]
+ \begin{displaymath}
+  \begin{aligned}
+   3(x^2-3)   &= 4                                                    \AddNode\\
+     x^2-3    &= \frac{4}{3}                                          \AddNode\\
+     x^2      &= \frac{13}{3}                                         \AddNode\\
+\sqrt{x^2}    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+       |x|    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x       &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+  \end{aligned}%
+ \end{displaymath}%
+ \LinkNodes{$\div 3$}%
+ \LinkNodes{$+3$}%
+ \LinkNodes{$\sqrt{\ldots}$}%
+ \tikz[remember picture,overlay]%
+ \draw[>=latex',red,<->](Inter) to node[above]{3 cm}%
+                       ([shift={(3cm,0)}]Inter);%
+\end{NodesList}
+
+
+\begin{tkzexample}[code only,small,num]
+\begin{NodesList}[margin=3cm]% 默认情况下 margin = 2cm.
+ \begin{displaymath}
+  \begin{aligned}
+   3(x^2-3)   &= 4                                                    \AddNode\\
+     x^2-3    &= \frac{4}{3}                                          \AddNode\\
+     x^2      &= \frac{13}{3}                                         \AddNode\\
+\sqrt{x^2}    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+       |x|    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x       &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+  \end{aligned}%
+ \end{displaymath}%
+ \LinkNodes{$\div 3$}%
+ \LinkNodes{$+3$}%
+ \LinkNodes{$\sqrt{\ldots}$}%
+\end{NodesList}\end{tkzexample}
+
+% \subsection{Negative margins}
+\subsection{负边距}
+\IoptEnv{NodesList}{negative margin} \IoptEnv{displaymath}{displaywidth}
+% Yes we can! The example is from \tkzname{MathMode.pdf}
+% In this example, I use \tkzcname{displaywidth}
+下面的示例源自\tkzname{MathMode.pdf}，
+在此，使用\tkzcname{displaywidth}命令设置公式宽度。
+\begin{NodesList}[margin=-1cm]
+  \begin{displaymath}\displaywidth=.4\linewidth
+	\begin{aligned} 
+	y &= 2x^2 -3x +5                          \AddNode\\
+  & \hphantom{= \ 2\left(x^2-\frac{3}{2}\,x\right. }% 
+      \textcolor{blue}{% 
+        \overbrace{\hphantom{+\left(\frac{3}{4}\right)^2- % 
+          \left(\frac{3}{4}\right)^2}}^{=0}}   \\       
+  &= 2\left(\textcolor{red}{% 
+       \underbrace{% 
+           x^2-\frac{3}{2}\,x + \left(\frac{3}{4}\right)^2}% 
+   }% 
+   \underbrace{% 
+        - \left(\frac{3}{4}\right)^2 + \frac{5}{2}}% 
+   \right)                                      \AddNode\\
+   &= 2\left(\qquad\textcolor{red}{\left(x-\frac{3}{4}\right)^2} 
+   \qquad + \ \frac{31}{16}\qquad\right)  \AddNode\\           
+y  
+   &= 2\left(x\textcolor{cyan}{-\frac{3}{4}}\right)^2\textcolor{blue}{+\frac{31}{8}}\AddNode 
+\end{aligned} 
+ 	     \end{displaymath}
+{ 	       \tikzset{LabelStyle/.append style = {left,text=red}}
+    \LinkNodes{%
+    \begin{minipage}{5cm}
+      $2x^2 -3x$ 是二项式 %
+      \end{minipage}}
+       \LinkNodes{$(a-b)^2=a^2-2ab+b^2$}
+       \LinkNodes{化简后的结果}}
+\end{NodesList}
+
+\begin{tkzexample}[vbox,small,num,code only]	      
+\begin{NodesList}[margin=-1cm]
+  \begin{displaymath}\displaywidth=.4\linewidth
+	\begin{aligned} 
+	y &= 2x^2 -3x +5                          \AddNode\\
+  & \hphantom{= \ 2\left(x^2-\frac{3}{2}\,x\right. }% 
+      \textcolor{blue}{% 
+        \overbrace{\hphantom{+\left(\frac{3}{4}\right)^2- % 
+          \left(\frac{3}{4}\right)^2}}^{=0}}   \\       
+  &= 2\left(\textcolor{red}{% 
+       \underbrace{% 
+           x^2-\frac{3}{2}\,x + \left(\frac{3}{4}\right)^2}% 
+   }% 
+   \underbrace{% 
+        - \left(\frac{3}{4}\right)^2 + \frac{5}{2}}% 
+   \right)                                      \AddNode\\
+   &= 2\left(\qquad\textcolor{red}{\left(x-\frac{3}{4}\right)^2} 
+   \qquad + \ \frac{31}{16}\qquad\right)  \AddNode\\           
+y  
+   &= 2\left(x\textcolor{cyan}{-\frac{3}{4}}\right)^2\textcolor{blue}{+\frac{31}{8}}\AddNode 
+\end{aligned} 
+ 	     \end{displaymath}
+{ 	       \tikzset{LabelStyle/.append style = {left,text=red}}
+    \LinkNodes{%
+    \begin{minipage}{5cm}
+      $2x^2 -3x$ 是代数恒等式的开始 %
+       (二项式)
+      \end{minipage}}
+       \LinkNodes{$(a-b)^2=a^2-2ab+b^2$}
+       \LinkNodes{简化后的结果}}
+\end{NodesList}	      
+\end{tkzexample}
+
+	      
+% \subsection{The general option \tkzname{dy}}
+\subsection{\tkzname{dy}选项}
+\IoptEnv{NodesList}{dy} \IoptEnv{NodesList}{margin}
+% Here, it is a question  of adjusting the distance between two arrows. The distance is equal in 
+% $2\times \text{dy}$
+在此，可以通过$2\times \text{dy}$调整箭头间的距离。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=3cm,dy=3pt]% 
+ \begin{displaymath}
+  \begin{aligned}
+   3(x^2-3)   &= 4                                                    \AddNode\\
+     x^2-3    &= \frac{4}{3}                                          \AddNode\\
+     x^2      &= \frac{13}{3}                                         \AddNode\\
+\sqrt{x^2}    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+       |x|    &=\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x       &=\pm\sqrt{\frac{13}{3}}                                \AddNode
+  \end{aligned}
+ \end{displaymath}
+ \LinkNodes{$\div 3$}%
+ \LinkNodes{$+3$}%
+ \LinkNodes{$\sqrt{\ldots}$}
+\end{NodesList}\end{tkzexample}
+
+
+% \section{Modification of the style}
+\section{样式修改}
+ \IstyleEnv{NodesList}{ArrowStyle}      \IstyleEnv{NodesList}{LabelStyle}   \IstyleEnv{NodesList}{NodeStyle}
+% It is enough for it to modify either \tkzname {\{ArrowStyle\}}, or \tkzname {\{LabelStyle\}}. By default, the values are the following ones 
+通过修改\tkzname {\{ArrowStyle\}}或\tkzname {\{LabelStyle\}}样式实现样式调整，
+其默认设置如下：
+
+\begin{itemize}
+  \item \tkzcname{tikzset\{ArrowStyle/.style=\{>=latex,->,text=black\}\}}
+  \item \tkzcname{tikzset\{LabelStyle/.style=\{pos=0.25,right\}\}}
+  \item \tkzcname{tikzset\{NodeStyle/.style=\{\}\}}
+\end{itemize}
+
+% \tikzset{ArrowStyle={>=latex',->,black}} 
+%
+% \tikzset{LabelStyle={pos=0.25,right,text=black}}
+%
+% \tikzset{NodeStyle={}}
+
+% \subsection{Adding some style}
+\subsection{添加更多样式}
+
+
+% At first, the shape of the arrow is modified as well as its color. For other forms of arrow, see the documention on the  \tkzname{pgfmanual}.
+首先，可以修改箭头的形状和颜色，能够使用的箭头样式可参阅\tkzname{pgfmanual}。
+
+% Then the place of the label is modified with \tkzdft{pos=0.75} . \tkzdft{pos=0} corresponds to the superior corner, \tkzdft{pos=0.25 } in the middle of the vertical line. We can then adjust the position of the node, here \tkzname{above}  is used. For other adjustments, see \tkzname{pgfmanual} or the following examples.
+然后，通过\tkzdft{pos=0.75}修改标签距离。
+其中，\tkzdft{pos=0}表示上角，\tkzdft{pos=0.25 }表示垂线中间。
+也可以通过选项调节标签布置位置，如\tkzname{above}等。
+关于如何调整的细节，请参阅\tkzname{pgfmanual}或下面的示例代码。
+
+\begin{tkzexample}[vbox,small,num]
+  \begin{NodesList}
+ \[
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+  {\tikzset{ArrowStyle/.style={>=stealth',->,cyan}} 
+   \tikzset{LabelStyle/.style={pos=0.75,above,text=red}}
+   \LinkNodes{$\div 2$}}
+\end{NodesList}\end{tkzexample}
+
+% \subsection{Modification of the text color}
+\subsection{修改文本颜色}
+ \IstyleEnv{NodesList}{Label color}  
+%  Since styles are just special cases of pgfkeys’s general style facility, you can actually do quite a bit more. 
+ 由于这些环境和命令的样式只是pgfkey通用样式的一个特例，因此，
+% Let us start with adding options to an already existing style. This is done using /.append style instead of /.style: 
+可以使用/.append代替/.style来为一个已存在的样式添加更多的选项，
+从而实现更为复杂的样式设置。
+
+%  \tkzname{.append style} allows  to take back the values of the style \tkzname{LabelStyle} by adding the color\footnote{Another possibility is  \tkzcname
+% {LinkNodes{\BS textcolor\{orange\}\{\$\BS div\ 2\$\}}}} \tkzname{red} in the text which replaces the old color. Note that two colors are set, so the last one will “win.”
+\tkzname{.append style} 可以通过在文本中添加\tkzname{red}来代替旧颜色，
+然后再使用\tkzname{LabelStyle}样式的值。
+ \footnote{另一种做法是：\tkzcname{LinkNodes{\BS textcolor\{orange\}\{\$\BS div\ 2\$\}}}}
+注意，如果设置了两种颜色，则后一种颜色起作用。
+
+
+\begin{tkzexample}[vbox,small,num]
+  \begin{NodesList}
+ \[
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+  {\tikzset{LabelStyle/.append style = {text=red}}
+   \LinkNodes{$\div 2$}}
+\end{NodesList}\end{tkzexample}
+
+% \subsection{Modification of the text position}
+\subsection{更改标签文本位置}
+    \IstyleEnv{NodesList}{label position}  \Ienv{aligned}
+%  You need to read the paragraph of \tkzname{pgfmanual}   "Basic Placement Options". You can use \tkzname{left}, \tkzname{right}, \tkzname{above} and \tkzname{below} but also something like   \tkzname{above right} or \tkzname{left = 2 cm}.
+ 可以使用\tkzname{left}、\tkzname{right}、\tkzname{above}或\tkzname{below}
+ 及类似\tkzname{above right}或\tkzname{left = 2 cm}等选项，控制标签文本位置。
+ 详情请参阅\tkzname{pgfmanual}的\enquote{Basic Placement Options}小节。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+ \[
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+  {\tikzset{LabelStyle/.append style = {text=red,left}}
+   \LinkNodes{$\div 2$}}
+\end{NodesList}\end{tkzexample}
+
+% \subsection{Boxed text}
+\subsection{显示文本盒子边框}
+   \IstyleEnv{NodesList}{Boxed label }  
+% A little more sophisticated: \tkzname{draw} allows to frame, \tkzname{right=10pt} allows to move away a little the label, \tkzname{green} defines the color of the line, \tkzname {fill=green!30} defines the color of filling and finally the color of the text is red.
+\tkzname{draw}选项允许绘制边框，
+\tkzname{right=10pt}偏移标签，
+\tkzname{red}定义了边框颜色，
+\tkzname {fill=green!30}定义了填充色，
+文本颜色设置为\tkzname{red}。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+ \[
+   \begin{aligned}
+       2x     &= 8                                               \AddNode\\
+       x      &= 4                                               \AddNode
+   \end{aligned}
+ \]
+{\tikzset{LabelStyle/.style = {draw,right=10pt,red,fill=green!30,text=red}} 
+   \LinkNodes{$\div 2$}}
+\end{NodesList}\end{tkzexample}
+
+
+% \section{Some more complex examples}
+\section{更为复杂的示例}
+% \subsection{Solution of two simultaneous equations.}
+\subsection{两个联立方程的解}
+\Ienv{matrix}\Ienv{minipage}
+% Solution of two simultaneous equations. The problem is to find the set of all solutions that satisfies both equations. These are called simultaneous equations.
+求两个联立方程的解，就是找到同时满足两个方程的一组解，则这两个方程称为联立方程。
+
+\begin{tkzexample}[vbox,small,num]
+ \begin{minipage}{12cm}
+	 \begin{NodesList}[dy=3pt]
+	 \[ \left\{\begin{matrix}
+	 3x 	&+&	4y  		&=&	10\\
+	 2x		&+& 	y		&=&	5  \AddNode\\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 3x 	&+&	4y  		&=&	10\\
+	 8x		&+& 	4y		&=&	20  \AddNode\\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 3x 	&+&	4y  		&=&	10  \\
+	 5x		&& 			  &=&	10  \AddNode\\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 3(2) 	&+&	4y  		&=&	10\\
+	 x		&& 			  &=&	2  \AddNode\\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 3(2) 	&+&	4y  		&=&	10\AddNode\\
+	 x		&& 			  &=&	2  \\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 4y  		&=&	10-6\AddNode\\
+	 x				  &=&	2  \\
+	 \end{matrix}\right. \] 
+\vspace{0.5cm}
+	 \[ \left\{\begin{matrix}
+	 y  		&=&	1 \AddNode\\
+	 x				  &=&	2  \\
+	 \end{matrix}\right. \] 
+	\LinkNodes{\begin{minipage}{3cm}
+	   第2个方程两边同时乘以4\end{minipage}}
+	\LinkNodes{\begin{minipage}{3cm}
+	  用第2个方程减去第1个方程\end{minipage}}
+	\LinkNodes[margin=4 cm]{$\div 5$} 
+	\LinkNodes{\begin{minipage}{3cm}
+	  由此可得：$x = 2$，将其代入第1个方程
+	\end{minipage}}
+	\LinkNodes{%
+	\begin{minipage}{3cm}
+	      在第1个方程两边同时减去$6$\end{minipage}}
+	         \LinkNodes[margin=4 cm]{$\div 4$}
+	\end{NodesList}
+	
+	结果是$\{(x=2~;~y=1)\}$
+ \end{minipage}\end{tkzexample}
+
+
+% \subsection{Nested Environments aligned}
+\subsection{嵌套aligned环境}
+\index{Nested Environments}\IoptEnv{NodesList}{margin}
+ \IstyleEnv{NodesList}{LabelStyle}   \Ienv{aligned}
+% This example is more complex because the environments are nested.
+由于使用了环境嵌套，该示例更为复杂。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=0cm]
+ \begin{displaymath}
+   \begin{aligned}
+      x^2-4       & = 0                                           \AddNode\\
+      (x-2)(x+2)  & = 0                                           \AddNode\\
+     \left.\begin{aligned}
+              x-2 & = 0                                                   \\
+              x   & = 2                                                   \\
+                  &                                                       \\
+              x+2 & = 0                                                   \\
+              x   & = -2                                                  \\
+           \end{aligned}\right\}                                 \AddNode\\
+     \end{aligned}
+ \end{displaymath}
+  {\tikzset{LabelStyle/.style = {left=0.1cm,pos=.25,text=red}} 
+  \LinkNodes[]{因式分解}%
+   \LinkNodes{每次仅使一个因式为0}%
+  }
+\end{NodesList}\end{tkzexample}
+
+% \subsection{One environment and two groups}
+\subsection{一个环境两组连线标示}
+\Iopt{AddNode}{groups}\Ienv{align}
+\begin{tkzexample}[vbox,small,num]
+    \begin{NodesList}[margin=4 cm,dy=3pt]
+       \begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+        x^2    &= 2                                                 \AddNode[2]\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode[2]\\
+      |x|      &= \sqrt{2}                                          \AddNode[2]\\
+       x       &= \pm\sqrt{2}    
+         \end{align}
+ \LinkNodes{展开}%
+ \LinkNodes{$+2$}%
+ \LinkNodes[margin=5 cm]{$\sqrt{\ldots}$}
+ \LinkNodes[margin=5 cm]{$\sqrt{x}=|x|$}
+    \end{NodesList} \end{tkzexample}
+
+
+\vfill\newpage
+% \subsection{Two environments and a group}
+\subsection{两个环境一组连线标示}
+\IoptEnv{NodesList}{margin}\Ienv{aligned}
+\begin{tkzexample}[vbox]
+\begin{NodesList}[margin=0.5cm]
+ \begin{displaymath}
+   \begin{aligned}
+      x^2-4       &= 0                                              \AddNode\\
+      (x-2)(x+2)  &= 0                                              \AddNode\\
+      {\left.
+         \begin{aligned}
+             x-2 &= 0                                                       \\
+             x   &= 2                                                       \\
+                 &                                                          \\
+             x+2 &= 0                                                       \\
+             x   &= -2                                                      \\
+         \end{aligned}
+       \right\}%
+      }                                                            \AddNode\\
+     \end{aligned}
+ \end{displaymath}
+{\tikzset{LabelStyle/.style = {left=0.5cm,pos=.25,text=red}}
+ \LinkNodes[]{第1个式子可分解为}%
+ \LinkNodes{每次仅使一个因式为0}%
+}
+\end{NodesList}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{Label with  \tkzname{minipage}}
+\subsection{使用\tkzname{minipage}添加标签}
+  \Ienv{minipage} \Ienv{aligned}
+% You can see in this example how to define  a style if you want to place correctly a "minipage".
+  在该例中，演示了如何使用\tkzname{minipage}环境添加标签。
+\IoptEnv{NodesList}{margin}\IoptEnv{NodesList}{dy}
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=1cm,dy=3pt]
+  \begin{displaymath}
+    \begin{aligned}
+        x^2-4       &= 0                                           \AddNode\\
+        (x-2)(x+2)  &= 0                                           \AddNode\\
+                    &\left.%
+                     \begin{aligned}
+                             x-2 &= 0                                      \\
+                             x   &= 2                                      \\
+                                 &                                         \\
+                             x+2 &= 0                                      \\
+                             x   &= -2                                       
+                     \end{aligned}%
+                     \right\}\AddNode%
+    \end{aligned}%
+  \end{displaymath}
+  {\tikzset{LabelStyle/.style = {left=0.1cm,pos=.25,text=red}}
+  \LinkNodes{第1个式子可分解为}%
+  \tikzset{LabelStyle/.append style = {pos=.5,sloped}}
+  \LinkNodes{%
+\fbox{\begin{minipage}{4cm}
+     如果两个因式乘积0， %
+      则其中的一个因式为0，或两个因式同时为0
+  \end{minipage}%
+}
+  }%
+  }%
+\end{NodesList}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{Three groups  and few environments aligned}
+\subsection{多个aligned环境中使用3组\enquote{\tkzname{node}}}
+ \IoptEnv{displaymath}{displaywidth}\Iopt{AddNode}{groups}
+% It is interesting to notice the use of \tkzcname{displaywidth} which allows in display mathematical mode to modify the placement with regard to the left margin.
+注意，\tkzcname{displaywidth}选项能够修改行间公式的左边距。
+
+\medskip
+在\textbf{R}中求方程
+\colorbox{black}{\textcolor{white}{$\left(\dfrac{2}{3}-3x\right)\left(\dfrac{3}{5}+2x\right)=0 $}}
+的根
+
+\medskip
+\begin{NodesList}[dy=3]
+  \begin{displaymath}\displaywidth=.8\linewidth
+    \begin{aligned}
+      &\left(\frac{2}{3}-3x\right)\left(\frac{3}{5}+2x\right)=0     \AddNode\\
+      &{\begin{aligned}
+          &\Longleftrightarrow&&%
+          \left\{{%
+            \begin{aligned}
+              \frac{2}{3}-3x&=0                                 \AddNode[2]&\\
+              \text{或}&&                                       \AddNode    \\
+              \frac{3}{5}+2x&=0                                 \AddNode[3]&\\
+            \end{aligned}}%
+          \right.                                                           \\
+        &\Longleftrightarrow&&%
+        {%
+          \left\{%
+          \begin{aligned}
+            2-9x&=0                                              \AddNode[2]\\
+            \text{或}&                                                      \\
+            3+10x&=0                                             \AddNode[3]\\
+          \end{aligned}\right.}                                             \\
+        &\Longleftrightarrow&&%
+        {%
+          \left\{%
+          \begin{aligned}
+             2&=9x                                               \AddNode[2]\\
+                    \text{或}&                                              \\
+            10x&=-3                                              \AddNode[3]\\
+          \end{aligned}\right.}                                             \\
+         &\Longleftrightarrow&&%
+        {%
+          \left\{%
+          \begin{aligned}
+            x&=\frac{2}{9}                                       \AddNode[2]\\
+            \text{或}&                                                      \\
+            x&=-\frac{3}{10}                                     \AddNode[3]\\
+          \end{aligned}\right.}                                             \\
+       \end{aligned}}
+    \end{aligned}
+  \end{displaymath}
+ \LinkNodes[margin=4.5cm]{%
+\begin{minipage}{4cm}
+   \textcolor{red}{\textbf{如果两个因式的乘积为0，
+		   则一个或两个因式为0。}}
+\end{minipage}}%
+{\LinkNodes[margin=5cm]{$\times{}3$}%
+ \LinkNodes[margin=5cm]{$+9x$}
+ \LinkNodes[margin=5cm]{$\div 9$}}
+ \LinkNodes{$\times{}5$}%
+ \LinkNodes{$+3$}
+ \LinkNodes{$\div 10$}
+\end{NodesList}
+
+可以查看下一页的代码：
+\vfill\newpage
+\begin{tkzexample}[vbox,code only,small,num]
+ \begin{NodesList}[dy=3]
+   \begin{displaymath}\displaywidth=.8\linewidth
+     \begin{aligned}
+       &\left(\frac{2}{3}-3x\right)\left(\frac{3}{5}+2x\right)=0    \AddNode\\
+       &{\begin{aligned}
+           &\Longleftrightarrow&&%
+           \left\{{%
+             \begin{aligned}
+               \frac{2}{3}-3x&=0
+                                                                \AddNode[2]&\\
+               \textrm{ou}&&                                      \AddNode    \\
+               \frac{3}{5}+2x&=0                                \AddNode[3]&\\
+             \end{aligned}}%
+           \right.                                                          \\
+         &\Longleftrightarrow&&%
+         {%
+           \left\{%
+           \begin{aligned}
+             2-9x&=0                                             \AddNode[2]\\
+             \textrm{ou}&                                                     \\
+             3+10x&=0                                            \AddNode[3]\\
+           \end{aligned}\right.}                                            \\
+         &\Longleftrightarrow&&%
+         {%
+           \left\{%
+           \begin{aligned}
+              2&=9x                                              \AddNode[2]\\
+                     \textrm{ou}&                                             \\
+             10x&=-3                                             \AddNode[3]\\
+           \end{aligned}\right.}                                            \\
+          &\Longleftrightarrow&&%
+         {%
+           \left\{%
+           \begin{aligned}
+             x&=\frac{2}{9}                                      \AddNode[2]\\
+             \textrm{ou}&                                                     \\
+             x&=-\frac{3}{10}                                    \AddNode[3]\\
+           \end{aligned}\right.}                                            \\
+        \end{aligned}}
+     \end{aligned}
+   \end{displaymath}
+  \LinkNodes[margin=4.5cm]{%
+ \begin{minipage}{4cm}
+   \textcolor{red}{\textbf{如果两个因式的乘积为0，
+		   则一个或两个因式为0。}}
+ \end{minipage}}%
+ {\LinkNodes[margin=5cm]{$\times{}3$}%
+  \LinkNodes[margin=5cm]{$+9x$}
+  \LinkNodes[margin=5cm]{$\div(9)$}}
+  \LinkNodes{$\times{}5$}%
+  \LinkNodes{$+3$}
+  \LinkNodes{$\div(10)$}
+ \end{NodesList}\end{tkzexample}
+\Iopt{AddNode}{groups}
+
+% \section{How to use \tkzname{tkz-linknodes.sty} with  \tkzname{align}}
+\section{在\tkzname{align}环境中使用\tkzname{tkz-linknodes.sty}宏包}
+% \subsection{With align et minipage}
+\subsection{align环境和minipage环境}
+  \Ienv{align}   \Ienv{minipage} 
+% With this environment, we are directly in the display math mode and the lines are numbered.
+使用该环境，可以直接在行间公式模式下为每行公式进行编号。
+
+% This environment is very useful and I recommend you to see the examples in MathMode.tex  of Herbert Vo\ss.
+可以参阅\texttt{Herbert Vo\ss}的\enquote{MathMode.tex}中的样例学习这一个非常有用的环境的使用方法。
+
+\medskip
+\begin{tkzexample}[vbox,small,num]
+  \begin{minipage}{12cm}
+    \begin{NodesList}[margin=4 cm]
+       \begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2}    
+         \end{align}
+ \LinkNodes{展开}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+    \end{NodesList} 
+  \end{minipage}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{With \tkzname{align*}}
+\subsection{使用\tkzname{align*}环境}
+  \Ienv{align*} 
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=4 cm]
+\begin{align*}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2}                                      
+     \end{align*}
+ \LinkNodes{展开}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+\end{NodesList}\end{tkzexample}
+
+% \subsection{With \tkzname{align} and \tkzname{nonumber}}
+\subsection{使用\tkzname{align}环境和\tkzcname{nonumber}命令}
+  \Imacro{nonnumber} \Ienv{align}
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=4 cm]
+\begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                    \nonumber\AddNode\\ % \nonumber命令
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                        \nonumber\AddNode\\ % \nonumber命令
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2} 
+     \end{align}
+ \LinkNodes{展开}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+\end{NodesList}\end{tkzexample}
+
+% \section{How to use \tkzname{tkz-linknodes.sty} with  \tkzname{array}}
+\section{在\tkzname{array}环境中使用\tkzname{tkz-linknodes.sty}宏包}
+  \Ienv{array} 
+% \subsection{With \tkzname{array} an example from  Mathmode.tex}
+\subsection{\enquote{Mathmode.tex}中的使用\tkzname{array}环境的示例}
+\begin{tkzexample}[vbox,small,num]
+\begin{minipage}{11cm}
+{\renewcommand{\arraystretch}{2}%
+\begin{NodesList}
+\[y = \left\{%
+   \begin{array}{ll}
+     x^2+2x  &\textrm{if }x<0,                                   \AddNode   \\
+     x^3     &\textrm{if }0\le x<1,                              \AddNode[2]\\
+     x^2+x   &\textrm{if }1\le x<2,                              \AddNode   \\
+     x^3-x^2 &\textrm{if }2\le x.                                \AddNode[2]
+   \end{array}\right.\]
+\tikzset{ArrowStyle/.append style = {<->,red}}
+\tikzset{LabelStyle/.append style = {pos=0.20}}
+\LinkNodes[margin=3cm]{2次方} 
+{\tikzset{ArrowStyle/.append style = {<->,blue}}
+\LinkNodes[margin=1cm]{3次方}} 
+\end{NodesList}}
+\end{minipage}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{An example from  Mathmode.tex}
+\subsection{\enquote{Mathmode.tex}中的实例1}
+  \Ienv{array} \Iopt{LinkNodes}{margin} 
+% In this example, we use an environment \tkzname{minipage} in the label.
+该例中，使用\tkzname{minipage}环境添加标签。
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}[margin=0cm]
+  \[
+  \begin{array}{@{}r@{\quad}ccrr@{}}
+	  \textrm{a}) & y & = & c & (\text{常函数})                            \AddNode \\
+  \textrm{b}) & y & = & cx+d & (\text{线性函数})                                    \\
+   \textrm{c}) & y & = & bx^{2}+cx+d & (\text{2次函数})                             \\
+   \textrm{d}) & y & = & ax^{3}+bx^{2}+cx+d & (\text{3次函数})              \AddNode
+  \end{array}
+\]
+{\tikzset{ArrowStyle/.append style = {-,red}}
+ \tikzset{LabelStyle/.append style = {left,text=red}}
+ \LinkNodes{%
+   \begin{minipage}{4cm}
+    不同案例
+   \end{minipage}}%
+ }
+\end{NodesList}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{An example from  \tkzname{Mathmode.tex}}
+\subsection{\enquote{Mathmode.tex}中的实例2}
+  \Ienv{array} 
+\begin{tkzexample}[vbox,small,num]
+\begin{NodesList}
+\[
+\begin{array}{rcll}
+   y & = & x^{2}+bx+c                                                       \\
+     & = & x^{2}+2\cdot{\displaystyle\frac{b}{2}x+c}                        \\
+     & = & \underbrace{x^{2}+2\cdot\frac{b}{2}x+%
+           \left(\frac{b}{2}\right)^{2}}-%
+           {\displaystyle\left(\frac{b}{2}\right)^{2}+c}                    \\
+     &   & \qquad\left(x+{\displaystyle \frac{b}{2}}\right)^{2}             \\
+     & = & \left(x+{\displaystyle \frac{b}{2}}\right)^{2}-%
+          \left({\displaystyle  \frac{b}{2}}\right)^{2}+c           \AddNode\\
+   y+\left({\displaystyle \frac{b}{2}}\right)^{2}-c%
+     & = & \left(x+{\displaystyle \frac{b}{2}}\right)^{2}           \AddNode\\
+   y-y_{S}%
+     & = & (x-x_{S})^{2}                                                    \\
+   S(x_{S};y_{S})%
+     & \,\textrm{所以}\,%
+         & S\left(-{\displaystyle%
+           \frac{b}{2};\,\left({\displaystyle\frac{b}{2}}\right)^{2}-c}\right)
+\end{array}
+ \]
+ \tikzset{LabelStyle/.append style = {right=0.5cm,pos=0.25,text=red}}
+ \LinkNodes[margin=5cm]{%
+ \begin{minipage}{3cm}
+ 两边同时加$\left({\displaystyle \frac{b}{2}}\right)^{2}-c$
+   \end{minipage}}%
+ \end{NodesList}\end{tkzexample}
+
+\vfill\newpage
+% \section{Use with diverse environments}
+\section{与各种环境一起使用}
+  \Ienv{gather} 
+% \subsection{With \tkzname{gather}}
+\subsection{\tkzname{gather}环境}
+% A little modified example from  Mathmode.tex
+改自\enquote{Mathmode.tex}代码。
+\begin{tkzexample}[vbox,small,num]
+\begin{center}
+\fbox{%
+ \begin{minipage}{14cm}
+ \begin{NodesList}
+   \begin{gather}
+      \boxed{ 3(x^2-3) =4 }                                         \AddNode\\
+      x^2-3  =\frac{4}{3}                                           \AddNode\\
+      \intertext{\hfil 等式性质定理I \hfil}
+      x^2    =\frac{13}{3}                                          \AddNode\\
+      \sqrt{x^2}    =\sqrt{\frac{13}{3}}                            \AddNode\\
+       |x|   =\sqrt{\frac{13}{3}}                                   \AddNode\\
+      x      =\pm\sqrt{\frac{13}{3}}                                \AddNode
+   \end{gather}
+   \LinkNodes[margin=1cm]{$\div 3$}%
+   \LinkNodes[margin=1.5cm]{$+3$}%
+   \LinkNodes[margin=2.5cm]{$\sqrt{\ldots}$}
+   \LinkNodes[margin=3cm]{$\sqrt{x^2}=|x|$}
+   \LinkNodes[margin=4.5cm]{得到两个答案}
+ \end{NodesList}
+\end{minipage}%
+}
+\end{center}\end{tkzexample}
+
+\vfill\newpage
+% \subsection{With \tkzname{gather*} and \tkzname{align*}}
+\subsection{\tkzname{gather*}环境和\tkzname{align*}环境}
+       \Ienv{gather*}\Ienv{align*} 
+        
+% An example from Mathmode.tex
+改自\enquote{Mathmode.tex}代码。
+
+\begin{tkzexample}[vbox,small,num]
+\begin{minipage}{\linewidth-7pt}
+  \begin{NodesList}
+    \begin{gather*}
+      \begin{align*}
+        m_2 &=  m_2' + m_2''                                        \AddNode\\
+            &= \frac{V_2'}{v_2'} + \frac{V_2''}{v_2''}
+      \end{align*}                                                          \\
+      \Rightarrow m_2 v_2' = V - V_2'' + V_2''\frac{v_2'}{v_2''}    \AddNode\\
+    \end{gather*}
+    \begin{gather*}
+      \begin{align*}
+        m_2 &=  m_2' + m_2''                                        \AddNode\\
+            &= \frac{V_2'}{v_2'} + \frac{V_2''}{v_2''} &
+      \end{align*}                                                          \\
+      \Rightarrow m_2 v_2' = V - V_2'' + V_2''\frac{v_2'}{v_2''}    \AddNode\\
+    \end{gather*}
+     \LinkNodes{(i)}
+     \LinkNodes{(ii)}
+     \LinkNodes{(iii)}
+  \end{NodesList}
+\end{minipage}
+\end{tkzexample}
+
+\vfill\newpage  
+% \subsection{With \tkzname{enumerate}}    
+\subsection{\tkzname{enumerate}环境}    
+\Ienv{enumerate} 
+% This example  shows that we can use the environment \tkzname{NodesList} with a list \tkzname{enumerate}
+在\tkzname{enumerate}列表环境中使用\tkzname{NodesList}环境。
+\begin{tkzexample}[vbox,small,num]
+  \begin{NodesList}[margin=7cm]
+  \begin{enumerate}
+    \item  A                                                     \AddNode
+    \item  B                                                     \AddNode
+    \item  C                                                     \AddNode
+    \item  D                                                     \AddNode
+  \end{enumerate}
+  \LinkNodes{自由}%
+  \LinkNodes{平等}%
+  \LinkNodes{博爱}
+\end{NodesList}
+\end{tkzexample}
+
+% \subsection{With \tkzname{flalign}}    
+\subsection{\tkzname{flalign}环境}    
+\Ienv{flalign}
+% Another example from Mathmode.tex
+改自\enquote{Mathmode.tex}代码。
+ \IstyleEnv{NodesList}{ArrowStyle}  \IstyleEnv{NodesList}{LabelStyle}  
+\begin{tkzexample}[vbox,small,num] 
+\begin{NodesList}
+\begin{flalign}
+       x & = 2\quad\textrm{if }y >2\AddNode & \\
+       x & = 3\quad\textrm{if }y \le 2 \AddNode& 
+     \end{flalign}
+{\tikzset{ArrowStyle/.append style = {<->,red}}
+ \tikzset{LabelStyle/.append style = {left,text=blue}}
+ \LinkNodes{需要研究两种情况}}
+\end{NodesList}
+\end{tkzexample}
+
+\vfill\newpage
+% \subsection{With \tkzname{listings}}  
+\subsection{\tkzname{listings}环境}  
+\Ienv{listings}
+
+	\lstset{escapechar=\§}
+		\begin{NodesList}
+		 \begin{lstlisting}
+		 void example(FILE *fp)
+		 {
+		   int c;
+
+		   while((c=fgetc(fp)!=EOF)){
+		     if(c=='X')
+		       goto done; §\AddNode§
+		     fputc(c,stdout);
+		   }
+
+		done: §\AddNode§
+		   exit(0);
+		 }
+		 \end{lstlisting}
+		 \tikzset{ArrowStyle/.append style = {->,red}}
+
+		 \LinkNodes{}
+		\end{NodesList}
+
+
+
+\begin{tkzexample}[code only,small,num]
+	\lstset{escapechar=\§}
+		\begin{NodesList}
+		 \begin{lstlisting}
+		 void example(FILE *fp)
+		 {
+		   int c;
+
+		   while((c=fgetc(fp)!=EOF)){
+		     if(c=='X')
+		       goto done; §\AddNode§
+		     fputc(c,stdout);
+		   }
+
+		done: §\AddNode§
+		   exit(0);
+		 }
+		 \end{lstlisting}
+		 \tikzset{ArrowStyle/.append style = {->,red}}
+
+		 \LinkNodes{}
+		\end{NodesList}
+\end{tkzexample}
+
+% \section{Beamer and tkz-linknodes}
+\section{Beamer和tkz-linknodes}
+\index{Class!Beamer}
+% The next example is from \tkzimp{Guillaume Connan}. The first thing you can notice about this code is the multiple nodes from the first line.
+该示例代码来自\tkzimp{Guillaume Connan}，在第1行中使用了多个\enquote{\tkzcname{AddNode}}命令。
+\begin{tkzexample}[code only,small,num]
+	\documentclass[xcolor={usenames,pdftex,dvipsnames,table},10pt]{beamer}
+	\usepackage[utf8]{inputenc}
+	\usepackage{lmodern}
+	\usepackage[upright]{fourier}
+	\usepackage{tikz}
+
+	\usepackage{amsmath,calc}
+	\usepackage{tkz-linknodes}
+	\usetikzlibrary{arrows,shapes}
+	\newcommand{\vtab}{\rule[-1.2em]{0pt}{3em}}
+	\begin{document}
+
+	\begin{frame}
+	\tiny
+	\begin{NodesList}[margin=1cm]
+	\[
+	\begin{array}{lllllll}
+	\hline
+	\text{ Decimal}&\text{Babylone}&\text{Athenien}&\text{Maya}&%
+	\text{Japonais}&\text{Binaire}&\text{Bibinaire} \\
+	\hline
+	\uncover<2->{\vtab 13&A&B&C&D&1101&DA%
+	\AddNode\AddNode[2]\AddNode[3]\AddNode[4]\AddNode[5]\\}
+	\uncover<4->{\vtab 130&AB&C&D&&10000010&KOHE\AddNode\\}
+	\uncover<6->{\vtab 26&A&B&C&D&11010&HAKE\AddNode[2]\\}
+	\uncover<8->{\vtab 208&A&B&C&D&11010000&DAHO\AddNode[3]\\}
+	\uncover<10->{\vtab 260&A&B&C&D&100000100&HAHOBO \AddNode[4]\\}
+	\uncover<12->{\vtab 780&A&B&C&D&1100001100&HIHODO\AddNode[5]\\
+	\hline}
+	\end{array}
+	\]
+	\tikzstyle{ArrowStyle}+=[<->,blue]
+	\visible<3-4>{\LinkNodes[]{$\times10$}}
+	\visible<5-6>{\LinkNodes[]{$\times2$}}
+	\visible<7-8>{\LinkNodes[]{$\times16$}}
+	\visible<9-10>{\LinkNodes[]{$\times20$}}
+	\visible<11-12>{\LinkNodes[]{$\times60$}}
+	\end{NodesList}
+	\end{frame}
+	\end{document}
+\end{tkzexample}
+
+\vfill\newpage
+% \section{\tkzname{tkz-linknodes} and ordinary text}
+\section{\tkzname{tkz-linknodes}和普通文本}
+% The following text is from \url{http://www.sir-lancelot.co.uk/camelot.htm}. 
+以下文本摘自：\url{http://www.sir-lancelot.co.uk/camelot.htm}. 
+
+\bigskip
+
+	\begin{minipage}{12 cm}
+		\begin{NodesList}[margin=-1cm]
+			"In some versions of the legend, one of Lancelot's first tasks as a knight was to bring Guinevere to Camelot for her wedding to Arthur. During their journey back to Camelot, Guinevere and Lancelot fell in love\AddNode. In other stories, Guinevere was already Queen when Lancelot arrived, and he became one of the Queen's Knights. Lancelot soon became recognised as the greatest of the knights after successfully completing several quests. 
+
+			\dots
+			
+			Lancelot helped King Arthur put down the rebellion of Galehaut the Haut Prince, who surrendered to Arthur after being influenced by Lancelot's chivalry in battle. Later Galehaut became Lancelot's close friend and acted as a secret go-between\AddNode Lancelot and Guinevere."
+			
+				{ \tikzset{ArrowStyle/.append style = {opacity=.5,red,]-[}}
+			        \LinkNodes{%
+			      \begin{minipage}{5cm}
+		            \begin{itemize}
+		              \item to feel in love ?
+		               \item go-between  ?
+		            \end{itemize}
+		            
+		       \end{minipage}
+			        }}
+		\end{NodesList}
+	\end{minipage}
+	
+\begin{tkzexample}[code only,small,num]
+\begin{minipage}{12 cm}
+\begin{NodesList}[margin=-1cm]
+	"In some versions of the legend, one of Lancelot's first tasks as a knight was to%
+	bring Guinevere to Camelot for her wedding to Arthur. During their journey back to%
+	 Camelot, Guinevere and Lancelot fell in love.\AddNode In other stories, Guinevere%
+	 was already Queen when Lancelot arrived, and he became one of the Queen's%
+	 Knights. Lancelot soon became recognised as the greatest of the knights after%
+	successfully completing several quests. 
+
+			\dots
+			
+Lancelot helped King Arthur put down the rebellion of Galehaut the Haut Prince, who%
+ surrendered to Arthur after being influenced by Lancelot's chivalry in battle. Later%
+  Galehaut became Lancelot's close friend and acted as a secret go-between\AddNode%
+   Lancelot and Guinevere."
+			
+				{ \tikzset{ArrowStyle/.append style = {opacity=.5,red,]-[}}
+			        \LinkNodes{%
+			      \begin{minipage}{5cm}
+		            \begin{itemize}
+		              \item to feel in love ?
+		               \item go-between  ?
+		            \end{itemize}
+		            
+		       \end{minipage}
+			        }}
+\end{NodesList}
+\end{minipage}\end{tkzexample}
+\vfill\newpage
+\section{抬升一个\enquote{\tkzname{node}}}
+\index{NodesList!raise a node}
+
+% A better method of solving this problem is obtained by raising box. I use \TEX\ for that but perhaps there is a \LATEX\ method.
+% I remove \tkzcname{AddNode} and insert 
+% 解决类似问题的更好方案是使用\tkzname{raising box}来实现，
+% 可以使用\TEX{}的方法实现，当然也可以使用\LATEX{}的方法。
+% 在此，
+移除\tkzcname{AddNode}命令，插入如下代码：
+\begin{tkzexample}[code only, width=6cm]	\raise -1.2ex\hbox{\AddNode}
+\end{tkzexample}
+
+
+	\begin{minipage}{12 cm}
+		\begin{NodesList}[margin=-1cm]
+			"In some versions of the legend, one of Lancelot's first tasks as a knight was to bring Guinevere to Camelot for her wedding to Arthur. During their journey back to Camelot, Guinevere and Lancelot fell in love.\raise -1.2ex\hbox{\AddNode} In other stories, Guinevere was already Queen when Lancelot arrived, and he became one of the Queen's Knights. Lancelot soon became recognised as the greatest of the knights after successfully completing several quests. 
+
+			\dots
+			
+			Lancelot helped King Arthur put down the rebellion of Galehaut the Haut Prince, who surrendered to Arthur after being influenced by Lancelot's chivalry in battle. Later Galehaut became Lancelot's close friend and acted as a secret  go-between\raise -2ex\hbox{\AddNode} Lancelot and Guinevere."
+			
+				{ \tikzset{ArrowStyle/.append style = {opacity=.5,green!50!black,]-[}}
+			        \LinkNodes{%
+			      \begin{minipage}{5cm}
+		            \begin{itemize}
+		              \item to feel in love ?
+		               \item go-between  ?
+		            \end{itemize}
+		            
+		       \end{minipage}
+			        }}
+		\end{NodesList}
+	\end{minipage}
+
+\newpage
+\printindex
+\end{document}
